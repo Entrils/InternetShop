@@ -1,0 +1,16 @@
+:root {
+    /* цвета */
+    --color-text: #fff;
+    --color-text-dark: #0D0D0D;
+    --color-primary: #9FEE00;
+    --color-secondary: #19376d;
+    --color-dark: #1c2608;
+    --color-bg: #04152d;
+    --color-text-hover: #a3a3ad;
+    --color-btn-hover: #2b3f02;
+    --color-text-highlited: #9FEE00;
+    --color-skillscont: #181818;
+
+    /* шрифты */
+    --font-inter: "Inter Variable";
+}
