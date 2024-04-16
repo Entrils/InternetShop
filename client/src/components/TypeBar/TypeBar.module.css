@@ -1,0 +1,27 @@
+@import '../../vars.css';
+
+.Types{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Types li{
+    list-style: none;
+    position: relative;
+    border: solid;
+    border-width: 1px;
+    font-size: 16px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.Types li:active{
+    background-color: blue;
+    color:aliceblue;
+}

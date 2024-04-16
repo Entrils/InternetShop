@@ -43,6 +43,11 @@ nav{
     left: 20px;
 }
 
+.NavButtons{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
 .NavLogo {
     width: 50px;
 }

@@ -3,18 +3,15 @@ import React from 'react'
 import { Context } from '../../index'
 import styles from './NavBar.module.css'
 import { observer } from "mobx-react-lite"
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import {NavLink} from "react-router-dom";
-import {Button} from "react-bootstrap";
+import { SHOP_ROUTE } from '../../utils/consts'
 
 export const NavBar = observer (() => {
     const {user} = useContext(Context)
   return (
     <nav  className={styles.nav}>
             <div className={styles.navbar}>
-                <img src='../assets/logo.png' className={styles.NavLogo}></img>
+                <NavLink to={SHOP_ROUTE}> <img src='../assets/logo.png' className={styles.NavLogo}></img> </NavLink>
                 <ul className={styles.navbar}>
                 <li>
              <a href="#">О нас</a>
@@ -30,16 +27,16 @@ export const NavBar = observer (() => {
              </li>
                 {user.isAuth ?
                     <li>
-                        <button>
+                        <button className={styles.NavButtons}>
                             Админ панель
                         </button>
-                        <button>
+                        <button className={styles.NavButtons}>
                             Выйти
                         </button>
                     </li>
                     :
                     <li>
-                        <button onClick={() => user.setIsAuth(true)}>Авторизация</button>
+                        <button className={styles.NavButtons} onClick={() => user.setIsAuth(true)}>Авторизация</button>
                     </li>
                 }
                 </ul>

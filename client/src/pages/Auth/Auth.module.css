@@ -1,0 +1,57 @@
+@import '../../vars.css';
+
+.content{
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    display: flex;
+}
+
+.card {
+    width: 600px;
+    padding: 50px;
+    border: solid;
+    border-width: 1px;
+    border-color: #666;
+}
+
+.card h2{
+    margin-left: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    margin-top: 0.8rem;
+    height: 40px;
+}
+
+.Authbtn{
+    align-items: end;
+    margin-top: 0.4rem;
+    display: inline-block;
+    background-color: white;
+    border-color: #17cf97;
+    color: #17cf97;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    font-size: 16px;
+    height: 35px;
+}
+
+.Authbtn:hover{
+    background-color: #17cf97;
+    color: #666;
+}
+
+.belowRow{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

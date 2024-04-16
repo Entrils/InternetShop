@@ -1,0 +1,30 @@
+@import '../../vars.css';
+
+.card{
+    width: 160px;
+    cursor: pointer;
+    border-width: 1px;
+}
+
+.card img{
+    width: 150px;
+    height: 150px;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.typeDuplicate{
+    color: gray;
+    padding: 1px;
+}
+
+.rating{
+    display: flex;
+}
+.rating img{
+    width: 15px;
+    height: 15px;
+}

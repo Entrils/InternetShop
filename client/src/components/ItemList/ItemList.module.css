@@ -1,0 +1,8 @@
+@import '../../vars.css';
+
+.row{
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}

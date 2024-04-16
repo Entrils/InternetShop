@@ -1,0 +1,20 @@
+@import '../../vars.css';
+
+
+.row{
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+.card{
+    padding: 5px;
+    display: inline-block;
+    border: solid;
+    border-width: 1px;
+    margin-right: auto;
+    cursor: pointer;
+}
+.card:active{
+    background-color: blue;
+    color:aliceblue;
+}

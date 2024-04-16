@@ -4,15 +4,21 @@ export default class ItemStore{
     constructor(){
         this._types = [
             {id: 1, name: 'Лакрица'},
-            {id: 2, name: 'Червячки'}
+            {id: 2, name: 'Червячки'},
+            {id: 3, name: 'Мармелад'},
+            {id: 4, name: 'Хренотень'},
+            {id: 5, name: 'Че то еще'},
         ]
         this._brands = [
             {id: 1, name: 'Мармеладный рай'},
             {id: 2, name: 'Мармеладный ад'},
         ]
         this._items = [
-            {id: 1, name: 'Чупапи про', price: 1000, rating: 5, img: 'https://img.freepik.com/free-photo/colorful-candies-jelly-and-marmalade-unhealthy-sweets_114579-13261.jpg?w=1060&t=st=1713218306~exp=1713218906~hmac=7ee6be877c5865923412bbd3eb30996fbaa212c251c7729e3960e8d3636212b7'}
+            {id: 1, name: 'Чупапи про', price: 1000, rating: 5, img: 'https://img.freepik.com/free-photo/colorful-candies-jelly-and-marmalade-unhealthy-sweets_114579-13261.jpg?w=1060&t=st=1713218306~exp=1713218906~hmac=7ee6be877c5865923412bbd3eb30996fbaa212c251c7729e3960e8d3636212b7'},
         ]
+
+        this._selectedType ={}
+        this._selectedBrand ={}
         makeAutoObservable(this)
     }
 
@@ -26,6 +32,13 @@ export default class ItemStore{
         this._items = items
     }
 
+    setSelectedType(type){
+        this._selectedType = type
+    }
+    setSelectedBrand(brand){
+        this._selectedBrand = brand
+    }
+
     get types(){
         return this._types
     }
@@ -34,5 +47,13 @@ export default class ItemStore{
     }
     get items(){
         return this._items
+    }
+
+    get selectedType(){
+        return this._selectedType
+    }
+
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }
