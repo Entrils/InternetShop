@@ -4,10 +4,12 @@ import { Context } from '../../index'
 import styles from './NavBar.module.css'
 import { observer } from "mobx-react-lite"
 import {NavLink} from "react-router-dom";
-import { SHOP_ROUTE } from '../../utils/consts'
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../../utils/consts'
+import { useNavigate } from 'react-router-dom'
 
 export const NavBar = observer (() => {
     const {user} = useContext(Context)
+    const navigate = useNavigate()
   return (
     <nav  className={styles.nav}>
             <div className={styles.navbar}>
@@ -27,10 +29,10 @@ export const NavBar = observer (() => {
              </li>
                 {user.isAuth ?
                     <li>
-                        <button className={styles.NavButtons}>
+                        <button className={styles.NavButtons} onClick={()=> navigate(ADMIN_ROUTE)}>
                             Админ панель
                         </button>
-                        <button className={styles.NavButtons}>
+                        <button className={styles.NavButtons} onClick={()=> navigate(LOGIN_ROUTE)}>
                             Выйти
                         </button>
                     </li>

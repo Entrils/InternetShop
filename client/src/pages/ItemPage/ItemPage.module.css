@@ -1,0 +1,60 @@
+@import '../../vars.css';
+
+.content{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+
+.UpperInfo{
+    display: flex;
+    height: 40%;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    flex: 1.2rem;
+}
+
+.rating{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.ratingStar{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 48px;
+    font-weight: 600;
+    width: 240px;
+    height: 240px;
+}
+.ImageContainer img{
+    width: 25vw;
+    height: 30vh;
+}
+.addBasketCard{
+    display: flex;
+    height: 40%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 24px;
+    border: solid 5px;
+    border-color: lightgray;
+}
+
+.consistens{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.InfoRow{
+    padding: 5px;
+}

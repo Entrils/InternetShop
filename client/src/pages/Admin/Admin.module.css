@@ -1,0 +1,13 @@
+@import '../../vars.css';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5%;
+}
+.container button{
+    margin-top: 10px;
+    padding: 10px;
+}

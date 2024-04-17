@@ -1,5 +1,5 @@
-import Admin from './pages/Admin';
-import { ItemPage } from './pages/ItemPage';
+import {Admin} from './pages/Admin/Admin';
+import { ItemPage } from './pages/ItemPage/ItemPage';
 import { Basket } from './pages/Basket';
 import { Auth } from './pages/Auth/Auth';
 import { Shop } from './pages/Shop/Shop';
