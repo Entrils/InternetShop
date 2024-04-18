@@ -8,8 +8,16 @@ import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../../utils/consts'
 import { useNavigate } from 'react-router-dom'
 
 export const NavBar = observer (() => {
+
     const {user} = useContext(Context)
     const navigate = useNavigate()
+
+    const logOut = () =>{
+        user.setUser({})
+        user.setIsAuth(false)
+    }
+
+
   return (
     <nav  className={styles.nav}>
             <div className={styles.navbar}>
@@ -32,13 +40,13 @@ export const NavBar = observer (() => {
                         <button className={styles.NavButtons} onClick={()=> navigate(ADMIN_ROUTE)}>
                             Админ панель
                         </button>
-                        <button className={styles.NavButtons} onClick={()=> navigate(LOGIN_ROUTE)}>
+                        <button className={styles.NavButtons} onClick={()=> logOut()}>
                             Выйти
                         </button>
                     </li>
                     :
                     <li>
-                        <button className={styles.NavButtons} onClick={() => user.setIsAuth(true)}>Авторизация</button>
+                        <button className={styles.NavButtons} onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</button>
                     </li>
                 }
                 </ul>

@@ -12,7 +12,7 @@ export const ItemCard = ({item}) => {
   return (
     <Col md={3} onClick={() => navigate(ITEM_ROUTE + "/" + item.id)}>
         <div className={styles.card}>
-          <img src={item.img}/>
+          <img src={import.meta.env.VITE_API_URL+item.img}/>
           <div className={styles.content}>
             <div className={styles.typeDuplicate}>Marmelad...</div>
             <div>
