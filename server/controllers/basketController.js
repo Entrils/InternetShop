@@ -1,4 +1,4 @@
-const { Item, BasketItem, Basket } = require("../models/models")
+const { Item, BasketItems, Basket } = require("../models/models")
 
 class BasketController {
     // ------ CRUD корзины ------ //
@@ -6,13 +6,13 @@ class BasketController {
     async addToBasket(req,res,next){
         const user = req.user
         const {itemId} = req.body
-        const basket = await BasketDevice.create({basketId : user.id, itemId : itemId})
+        const basket = await BasketItems.create({basketId : user.id, itemId : itemId})
         return res.json(basket)
     }
 
     async getBasketUser(req,res){
         const {id} = req.user
-        const basket = await BasketItem.findAll({include: {
+        const basket = await BasketItems.findAll({include: {
                 model: Item
             }, where: {basketId: id}})
 

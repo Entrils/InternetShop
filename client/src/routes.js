@@ -1,6 +1,6 @@
 import {Admin} from './pages/Admin/Admin';
 import { ItemPage } from './pages/ItemPage/ItemPage';
-import { Basket } from './pages/Basket';
+import { Basket } from './pages/Basket/Basket';
 import { Auth } from './pages/Auth/Auth';
 import { Shop } from './pages/Shop/Shop';
 import {ADMIN_ROUTE, BASKET_ROUTE, REGISTRATION_ROUTE, LOGIN_ROUTE, ITEM_ROUTE, SHOP_ROUTE} from './utils/consts'

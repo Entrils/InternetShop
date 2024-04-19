@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react';
 import styles from './ItemPage.module.css'
 import ItemPageStar from '../../../assets/ItemPageStar.png'
 import { useParams } from 'react-router-dom';
-import { fetchOneItem } from '../../http/itemAPI';
+import { addToBasket, fetchOneItem } from '../../http/itemAPI';
 
 export const ItemPage = () => {
  const [item,setItem] = useState({info: []})
  const {id} = useParams();
+
  useEffect(() => {
   fetchOneItem(id).then(data => setItem(data))
  },[])
+
+ const add = () => {
+  const formData = new FormData()
+  console.log('added')
+  formData.append('itemId', id)
+  addToBasket(formData).then(response => alert(`Товар ` + item.name + ` был добавлен в вашу корзину!`))
+}
+
   return (
     <section className={styles.content}>
       <div className={styles.UpperInfo}>
@@ -30,7 +39,7 @@ export const ItemPage = () => {
         <div className={styles.addBasketCard}>
             <h3>От: {item.price} рублей</h3>
 
-            <button>Добавить в корзину</button>
+            <button onClick={add}>Добавить в корзину</button>
         </div>
 
       </div>
