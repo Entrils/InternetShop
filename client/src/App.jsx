@@ -10,14 +10,15 @@ import { Spinner } from 'react-bootstrap';
 
 const App = observer(() => {
 
-  const {user} = useContext(Context)
+  const {user, item} = useContext(Context)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(()=>{
       check().then(data => {
-        user.setUser(true)
-        user.setIsAuth(true)  
+           user.setIsRole(data.role)
+            user.setUser(data.id)
+            user.setIsAuth(true)  
       }).finally(()=> setLoading(false))
     }, 1000)
     

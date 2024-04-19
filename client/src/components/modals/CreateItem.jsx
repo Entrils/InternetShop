@@ -1,13 +1,26 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { Button, Dropdown, Row, Col } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import { Context } from '../../index'
+import { fetchTypes, fetchBrands, createItem } from '../../http/itemAPI'
+import { observer } from 'mobx-react-lite'
 
-export const CreateItem = ({show,onHide}) => {
+export const CreateItem = observer(({show,onHide}) => {
 
   const {item} = useContext(Context)
+
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [file, setFile] = useState(null)
+
+
   const [info, setInfo] = useState([])
+
+  useEffect(()=>{
+    fetchTypes().then(data=> item.setTypes(data))
+    fetchBrands().then(data=> item.setBrands(data))
+  },[])
 
   const addInfo = () => {
     setInfo([...info, {title: '', description: '', number: Date.now()}])
@@ -15,6 +28,25 @@ export const CreateItem = ({show,onHide}) => {
 
   const removeInfo = (number) => {
     setInfo(info.filter(i => i.number !== number))
+  }
+
+  const changeInfo = (key, value, number) => {
+    setInfo(info.map(i => i.number === number ? {...i, [key]: value}: i))
+  }
+
+  const selectFile = e => {
+      setFile(e.target.files[0])
+  }
+
+  const addItem =() =>{
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('price', `${price}`)
+    formData.append('img', file)
+    formData.append('brandId', item.selectedBrand.id)
+    formData.append('typeId', item.selectedType.id)
+    formData.append('info', JSON.stringify(info))
+    createItem(formData).then(data => onHide())
   }
 
   return (
@@ -33,11 +65,11 @@ export const CreateItem = ({show,onHide}) => {
         <Form>
             <Dropdown>
               <Dropdown.Toggle>
-                Выберите тип
+                {item.selectedType.name || 'Выберите Тип'}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {item.types.map(type =>
-                <Dropdown.Item key={type.id}>
+                <Dropdown.Item key={type.id} onClick={() => item.setSelectedType(type)}>
                   {type.name}
                 </Dropdown.Item>
                 )}
@@ -46,11 +78,11 @@ export const CreateItem = ({show,onHide}) => {
 
             <Dropdown>
               <Dropdown.Toggle>
-                Выберите бренд
+              {item.selectedBrand.name || 'Выберите Бренд'}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {item.brands.map(brand =>
-                <Dropdown.Item key={brand.id}>
+                <Dropdown.Item key={brand.id} onClick={() => item.setSelectedBrand(brand)}>
                   {brand.name}
                 </Dropdown.Item>
                 )}
@@ -58,15 +90,19 @@ export const CreateItem = ({show,onHide}) => {
             </Dropdown>
 
             <Form.Control
-            
+            value={name}
+            onChange={e => setName(e.target.value)}
                 placeholder='Введите название сладости'
             />
              <Form.Control
+             value={price}
+             onChange={e => setPrice(Number(e.target.value))}
             type='number'
             placeholder='Введите стоимость сладости'
         />
          <Form.Control
             type='file'
+            onChange={selectFile}
         />
         <hr/>
         <Button
@@ -79,11 +115,15 @@ export const CreateItem = ({show,onHide}) => {
           <Row className='mt-2' key={i.number}>
             <Col md={4}>
               <Form.Control
+              value={i.title}
+              onChange={(e)=> changeInfo('title',e.target.value, i.number)}
                 placeholder='Введите название свойства'
               />
             </Col>
             <Col md={4}>
               <Form.Control
+              value={i.description}
+              onChange={(e)=> changeInfo('description',e.target.value, i.number)}
               placeholder='Введите описание свойства'
               />
             </Col>
@@ -99,8 +139,8 @@ export const CreateItem = ({show,onHide}) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>Закрыть</Button>
-        <Button onClick={onHide}>Добавить</Button>
+        <Button onClick={addItem}>Добавить</Button>
       </Modal.Footer>
     </Modal>
   );
-}
+});

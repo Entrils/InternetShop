@@ -6,6 +6,7 @@ import { ItemList } from '../../components/ItemList/ItemList'
 import { observer } from 'mobx-react-lite'
 import { Context } from '../../index'
 import { fetchTypes, fetchBrands, fetchItems } from '../../http/itemAPI'
+import { Pages } from '../../components/Pages.jsx'
 
 export const Shop = observer(() => {
 
@@ -14,8 +15,18 @@ export const Shop = observer(() => {
   useEffect(()=>{
     fetchTypes().then(data=> item.setTypes(data))
     fetchBrands().then(data=> item.setBrands(data))
-    fetchItems().then(data=> item.setItems(data.rows))
+    fetchItems(null, null, 1, 3).then(data=> {
+      item.setItems(data.rows)
+      item.setTotalCount(data.count)
+    })
   },[])
+
+  useEffect(() => {
+    fetchItems(item.selectedType.id, item.selectedBrand.id, item.page, 3).then(data => {
+        item.setItems(data.rows)
+        item.setTotalCount(data.count)
+    })
+}, [item.page, item.selectedType, item.selectedBrand,])
 
   return (
     <section className={styles.container}>
@@ -28,11 +39,10 @@ export const Shop = observer(() => {
  { // основной контент (карточки с товарами) 
  }
       <div className={styles.content}>
-        <div className={styles.row}>
-          <div className={styles.col}>
-            <BrandBar />
+      <BrandBar />
+        <div className={styles.cards}>
             <ItemList />
-          </div>
+            <Pages />
         </div>
       </div>
 
