@@ -2,7 +2,6 @@ const uuid = require('uuid')
 const path = require('path');
 const {Item, ItemInfo} = require('../models/models')
 const ApiError = require('../error/ApiError');
-const { type } = require('os');
 
 class ItemController{
     async create(req, res, next){
@@ -43,13 +42,13 @@ class ItemController{
             items = await Item.findAndCountAll({limit , offset})
         }
         if (brandId && !typeId){
-            items = await Item.findAndCountAll({where:brandId}, limit , offset)
+            items = await Item.findAndCountAll({where:{brandId}}, limit , offset)
         }
         if (!brandId && typeId){
-            items = await Item.findAndCountAll({where:typeId}, limit , offset)
+            items = await Item.findAndCountAll({where:{typeId}}, limit , offset)
         }
         if (brandId && typeId){
-            items = await Item.findAndCountAll({where:typeId, brandId}, limit , offset)
+            items = await Item.findAndCountAll({where:{typeId, brandId}}, limit , offset)
         }
         return  res.json(items)
     }
