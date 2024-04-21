@@ -15,14 +15,14 @@ export const Shop = observer(() => {
   useEffect(()=>{
     fetchTypes().then(data=> item.setTypes(data))
     fetchBrands().then(data=> item.setBrands(data))
-    fetchItems(null, null, 1, 3).then(data=> {
+    fetchItems(null, null, 1, 5).then(data=> {
       item.setItems(data.rows)
       item.setTotalCount(data.count)
     })
   },[])
 
   useEffect(() => {
-    fetchItems(item.selectedType.id, item.selectedBrand.id, item.page, 3).then(data => {
+    fetchItems(item.selectedType.id, item.selectedBrand.id, item.page, 10).then(data => {
         item.setItems(data.rows)
         item.setTotalCount(data.count)
     })
@@ -42,8 +42,8 @@ export const Shop = observer(() => {
       <BrandBar />
         <div className={styles.cards}>
             <ItemList />
-            <Pages />
         </div>
+        <Pages />
       </div>
 
     </section>

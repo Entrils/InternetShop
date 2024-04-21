@@ -4,7 +4,7 @@ import { Context } from '../../index'
 import styles from './NavBar.module.css'
 import { observer } from "mobx-react-lite"
 import {NavLink} from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, BASKET_ROUTE } from '../../utils/consts'
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, BASKET_ROUTE, BLOG_ROUTE, ABOUT_ROUTE } from '../../utils/consts'
 import { useNavigate } from 'react-router-dom'
 
 export const NavBar = observer (() => {
@@ -23,17 +23,17 @@ export const NavBar = observer (() => {
 
   return (
     <nav  className={styles.nav}>
-            <div className={styles.navbar}>
-                <NavLink to={SHOP_ROUTE}> <img src='../assets/logo.png' className={styles.NavLogo}></img> </NavLink>
+        <NavLink to={SHOP_ROUTE}> <img src='../../../assets/logo.png' className={styles.NavLogo}></img> </NavLink>
+            <div>
                 <ul className={styles.navbar}>
                 <li>
-             <a href="#">О нас</a>
+                <NavLink to={ABOUT_ROUTE}>О нас</NavLink>
              </li>
              <li>
-             <a href="#">Товары</a>
+             <NavLink to={SHOP_ROUTE}>Товары</NavLink>
              </li>
              <li>
-             <a href="#">Блог</a>
+             <NavLink to={BLOG_ROUTE}>Блог</NavLink>
              </li>
              <li>
              <a href="#">Контакты</a>

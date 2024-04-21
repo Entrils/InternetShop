@@ -3,18 +3,21 @@
 .container{
     margin-top: 80px;
     margin-left: 1%;
-    margin-right: 10%;
+    margin-right: 5%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: flex-start;
     margin-top: 40px;
 }
 .content{
-    margin-right: auto;
+    margin-right: 10px;
+    align-items: flex-start;
     margin-left: 15px;
 }
 
 .cards{
     margin-left: 10px;
     justify-content: space-between;
+    gap: 13px;
+    display: flex;
+    align-items: flex-start;
 }

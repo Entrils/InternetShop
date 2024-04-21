@@ -7,6 +7,8 @@ import {observer} from 'mobx-react-lite'
 import { Context } from './index';
 import {check} from './http/userAPI'
 import { Spinner } from 'react-bootstrap';
+import { Contact } from './components/Contact/Contact';
+import styles from './App.module.css'
 
 const App = observer(() => {
 
@@ -26,16 +28,20 @@ const App = observer(() => {
   )
 
   if(loading){
-    return <Spinner animation={'grow'}>
+    return <Spinner 
+    animation={'grow'}>
 
     </Spinner>
   }
 
   return (
+<div className={styles.App}>
      <BrowserRouter>
       <NavBar />
       <AppRouter />
+      <Contact />
     </BrowserRouter>
+    </div>
   );
 });
 
