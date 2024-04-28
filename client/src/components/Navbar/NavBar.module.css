@@ -1,17 +1,38 @@
 @import '../../vars.css';
+@import "@fontsource/montserrat/700.css";
 
 nav{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #666;
+    background-color: var(--color-primary);
+    border-radius: 10px;
     padding: 0px 1.2rem 0px 1.2rem;
     box-shadow: 0 5px 15px rgba(0,0,0,0.06);
     z-index: 2;
-    /*margin: 0 10%;*/
+    margin: 10px 5%;
 }
 
+.biglogo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7px;
+}
+
+.biglogo h3{
+    color: var(--color-primary);
+    background-color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 7px;
+    padding: 5px;
+    font-family: "Montserrat";
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 900;
+}
 .navbar{
     display: flex;
     align-items: flex-end;

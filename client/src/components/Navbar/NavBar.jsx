@@ -23,14 +23,17 @@ export const NavBar = observer (() => {
 
   return (
     <nav  className={styles.nav}>
-        <NavLink to={SHOP_ROUTE}> <img src='../../../assets/logo.png' className={styles.NavLogo}></img> </NavLink>
+        <div className={styles.biglogo}>
+        <NavLink to={SHOP_ROUTE}> <img src='../../../assets/logo.png' className={styles.NavLogo}></img></NavLink>
+        <h3>ЯМИНЯМИ</h3>
+        </div> 
             <div>
                 <ul className={styles.navbar}>
                 <li>
                 <NavLink to={ABOUT_ROUTE}>О нас</NavLink>
              </li>
              <li>
-             <NavLink to={SHOP_ROUTE}>Товары</NavLink>
+             <NavLink to={SHOP_ROUTE}>Каталог</NavLink>
              </li>
              <li>
              <NavLink to={BLOG_ROUTE}>Блог</NavLink>

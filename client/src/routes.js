@@ -20,6 +20,10 @@ export const authRoutes = [
 
 export const publicRoutes = [
     {
+        path: BLOG_ROUTE,
+        Component: Blog
+    },
+    {
         path: SHOP_ROUTE,
         Component: Shop
     },
@@ -34,10 +38,6 @@ export const publicRoutes = [
     {
         path: ITEM_ROUTE + '/:id',
         Component: ItemPage
-    },
-    {
-        path: BLOG_ROUTE,
-        Component: Blog
     },
     {
         path: ABOUT_ROUTE,

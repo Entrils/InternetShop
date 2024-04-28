@@ -1,0 +1,32 @@
+@import "../../vars.css";
+
+
+.info{
+    background-color: var(--color-secondary);
+    z-index: 2;
+    margin: 10px 5%;
+    border-radius: 10px;
+    padding: 5px 1.2rem 5px 1.2rem;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.location{
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+}
+
+.extraInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    color: var(--color-text-secondary);
+}
+
+.extraInfo a{
+    text-decoration: none;
+    color: var(--color-text-secondary);
+}
