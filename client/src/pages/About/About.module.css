@@ -1,0 +1,6 @@
+@import './About.module.css';
+
+.container{
+    margin: 0 5%;
+    display: flex;
+}
