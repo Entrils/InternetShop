@@ -1,14 +1,16 @@
-[
+{
+    "slides": [
     {
-        "src": "",
+        "src": "../../assets/BlogImageSlider/img1.png",
         "alt": "Image 1"
     },
     {
-        "src": "",
+        "src": "../../assets/BlogImageSlider/img2.png",
         "alt": "Image 2"
     },
     {
-        "src": "",
+        "src": "../../assets/BlogImageSlider/img3.png",
         "alt": "Image 3"
     }
-]
+    ]
+}
