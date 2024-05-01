@@ -38,9 +38,6 @@ export const NavBar = observer (() => {
              <li>
              <NavLink to={BLOG_ROUTE}>Блог</NavLink>
              </li>
-             <li>
-             <a href="#">Контакты</a>
-             </li>
                 {user.isAuth ?
                     <li>
                          {user.isRole === 'ADMIN'?

@@ -5,7 +5,9 @@ import { Auth } from './pages/Auth/Auth';
 import { Shop } from './pages/Shop/Shop';
 import {Blog} from './pages/Blog/Blog';
 import {About} from './pages/About/About';
-import {ADMIN_ROUTE, BASKET_ROUTE, REGISTRATION_ROUTE, LOGIN_ROUTE, ITEM_ROUTE, SHOP_ROUTE, ABOUT_ROUTE, BLOG_ROUTE} from './utils/consts'
+import {ADMIN_ROUTE, BASKET_ROUTE, REGISTRATION_ROUTE, LOGIN_ROUTE, ITEM_ROUTE, SHOP_ROUTE, ABOUT_ROUTE, BLOG_ROUTE, DELIVERY_ROUTE, HOWTOORDER_ROUTE} from './utils/consts'
+import { FreeDelivery } from './pages/FreeDelivery/FreeDelivery';
+import { HowToOrder } from './pages/HowToOrder/HowToOrder';
 
 export const authRoutes = [
     {
@@ -42,5 +44,13 @@ export const publicRoutes = [
     {
         path: ABOUT_ROUTE,
         Component: About
+    },
+    {
+        path: DELIVERY_ROUTE,
+        Component: FreeDelivery
+    },
+    {
+        path: HOWTOORDER_ROUTE,
+        Component: HowToOrder
     },
 ]
